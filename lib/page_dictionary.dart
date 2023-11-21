@@ -39,14 +39,6 @@ class _PageDictionaryState extends State<PageDictionary> {
     super.initState();
   }
 
-
-  @override
-  void dispose() {
-    changePosition=false;
-    super.dispose();
-  }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -180,7 +172,7 @@ class _PageDictionaryState extends State<PageDictionary> {
                 ElevatedButton(onPressed: (){
                   setState(() {
                     dataBaseService.addWord(LugatModel(englishController.text, uzbekController.text)).then((value){
-                      initState();
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PageDictionary()));
                     });
                   });
                 },
